@@ -43,21 +43,29 @@ body, html {
     background-color: white;
     padding: 10px;
 }
-#submit {
+.button {
     color: white;
     background-color: rgb(140, 0, 140);
-    border-style: none;
+    border: 1px solid rgb(140, 0, 140);
+}
+.button:hover {
+    background-color: rgb(125, 0, 125);
+}
+#submit {
     padding: 16px;
     border-radius: 0 0 10px 10px;
-}
-#submit:hover {
-    background-color: rgb(130, 0, 130);
 }
 .result {
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: white;
+    border-radius: 10px;
     width: 400px;
-    padding: 50px;
+    padding: 50px 0;
+}
+#restart {
+    margin-top: 20px;
+    padding: 16px 32px;
+    border-radius: 10px;
 }
