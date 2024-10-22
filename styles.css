@@ -15,7 +15,8 @@ body, html {
 }
 .quiz-full-container {
     display: flex;
-    justify-content: center
+    flex-direction: column;
+    align-items: center;
 }
 .quiz-container {
     display: flex;
@@ -51,4 +52,12 @@ body, html {
 }
 #submit:hover {
     background-color: rgb(130, 0, 130);
+}
+.result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    width: 400px;
+    padding: 50px;
 }
