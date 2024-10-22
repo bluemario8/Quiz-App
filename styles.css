@@ -2,13 +2,53 @@
     margin: 0;
     padding: 0;
 }
-body {
+body, html {
     background-color: #dadada;
+    text-rendering: optimizeLegibility;
+}
+.header {
+    display: flex;
+    justify-content: center;
+}
+.header h1 {
+    font-size: 200%;
+}
+.quiz-full-container {
+    display: flex;
+    justify-content: center
 }
 .quiz-container {
     display: flex;
     flex-direction: column;
-    background-color: white;
-    padding: 50px;
     width: 400px;
+}
+.quiz-inner-container {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 50px 50px 11px 50px;
+    border-radius: 10px 10px 0 0;
+}
+.question {
+    margin-bottom: 12px;
+}
+.questions label,
+.questions input {
+    margin: 8px 0;
+}
+.question-number {
+    display: flex;
+    justify-content: flex-end;
+    background-color: white;
+    padding: 10px;
+}
+#submit {
+    color: white;
+    background-color: rgb(140, 0, 140);
+    border-style: none;
+    padding: 16px;
+    border-radius: 0 0 10px 10px;
+}
+#submit:hover {
+    background-color: rgb(130, 0, 130);
 }
