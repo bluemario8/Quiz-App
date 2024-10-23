@@ -1,7 +1,7 @@
 const listquestions =[
     {
         question: "Do the Cowboys Suck",
-        options: ["Yes", "No", "Maybe", "Yes definitly"],
+        options: ["Yes", "No", "Maybe", "Yes definitely"],
         answer: "Yes",
       },
       {
