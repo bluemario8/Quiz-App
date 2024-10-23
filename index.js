@@ -126,7 +126,7 @@ submitBtn.addEventListener("click", () => {
 
 function showResult() {
   document.querySelector(".quiz-container").style.display = "none"
-  resultContainer.parentElement.style.display = "block"
+  resultContainer.parentElement.style.display = "flex"
   resultContainer.querySelector("h3").textContent = `You got ${score} / ${listquestions.length} questions correct!`
 }
 
@@ -134,7 +134,7 @@ restartBtn.addEventListener("click", () => {
   score = 0
   currentQuestionIndex = 0
   resultContainer.parentElement.style.display = "none"
-  document.querySelector(".quiz-container").style.display = "block"
+  document.querySelector(".quiz-container").style.display = "flex"
   loadQuestion()
 })
 
