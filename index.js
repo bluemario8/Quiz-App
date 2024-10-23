@@ -52,3 +52,90 @@ const listquestions =[
       },
       
 ]
+let currentQuestionIndex = 0;
+let score = 0;
+
+const questionEl = document.querySelector(".question");
+const optionsEl = document.querySelector(".questions");
+const submitBtn = document.getElementById("submit");
+const resultContainer = document.querySelector(".result");
+const restartBtn = document.getElementById("restart");
+const numPerTotalEl = document.getElementById("num-per-total");
+
+function loadQuestion() {
+  const currentQuestion = listquestions[currentQuestionIndex];
+  questionEl.textContent = currentQuestion.question;
+
+  optionsEl.innerHTML = ""
+  currentQuestion.options.forEach((option, index) => {
+    const input = document.createElement("input")
+    input.type = "radio"
+    input.id = `answer-${index}`
+    input.name = "answer"
+    input.value = index
+
+    const label = document.createElement("label")
+    label.setAttribute("for", `answer-${index}`)
+    label.textContent = option
+
+    optionsEl.appendChild(input)
+    optionsEl.appendChild(label)
+    optionsEl.appendChild(document.createElement("br"))
+  })
+
+  numPerTotalEl.textContent = `${currentQuestionIndex + 1} / ${listquestions.length}`
+}
+
+function getSelectedAnswer() {
+  const answers = document.querySelectorAll('input[name="answer"]')
+  let selectedAnswer = null
+
+  answers.forEach((answer) => {
+    if (answer.checked) {
+      selectedAnswer = parseInt(answer.value)
+    }
+  })
+
+  return selectedAnswer;
+}
+
+submitBtn.addEventListener("click", () => {
+    const selectedAnswer = getSelectedAnswer();
+  
+    if (selectedAnswer === null) {
+      alert("Please select an answer.");
+      return;
+    }
+  
+    
+    const correctAnswer = listquestions[currentQuestionIndex].answer
+    const selectedOptionText = listquestions[currentQuestionIndex].options[selectedAnswer]
+  
+    if (selectedOptionText === correctAnswer) {
+      score++
+    }
+  
+    currentQuestionIndex++
+  
+    if (currentQuestionIndex < listquestions.length) {
+      loadQuestion()
+    } else {
+      showResult()
+    }
+  })
+
+function showResult() {
+  document.querySelector(".quiz-container").style.display = "none"
+  resultContainer.parentElement.style.display = "block"
+  resultContainer.querySelector("h3").textContent = `You got ${score} / ${listquestions.length} questions correct!`
+}
+
+restartBtn.addEventListener("click", () => {
+  score = 0
+  currentQuestionIndex = 0
+  resultContainer.parentElement.style.display = "none"
+  document.querySelector(".quiz-container").style.display = "block"
+  loadQuestion()
+})
+
+loadQuestion()
